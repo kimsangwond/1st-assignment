@@ -9,7 +9,11 @@ const rl = readline.createInterface({
 });
 
 rl.on("line", function(line) {
-	console.log(line);
+	
+	let valueArr = line.split(" ");
+	let totalMoney = valueArr[0]*Math.pow(1+(valueArr[1]/100), valueArr[2]);
+	console.log(totalMoney.toFixed(2));
+	
 	rl.close();
 }).on("close", function() {
 	process.exit();
