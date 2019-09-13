@@ -9,7 +9,20 @@ const rl = readline.createInterface({
 });
 
 rl.on("line", function(line) {
-	console.log("Hello Goorm! Your input is", line);
+	let clap = 0;
+	let numList = "";
+	
+	for(let i = 1; i<=line; i++){
+			numList += i
+		}
+	
+	for(let i = 0; i < numList.length+1; i++) {
+		if(numList[i] == 3 || numList[i] == 6 || numList[i] == 9 ){
+			clap++;
+		}
+	} 
+	
+	console.log(clap);
 	rl.close();
 }).on("close", function() {
 	process.exit();
