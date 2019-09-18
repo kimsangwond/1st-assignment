@@ -1,28 +1,19 @@
-// Run by Node.js
-// 369 게임
-// node first.js 해보면 input output이 어떻게 되는지 알 수 있음
-
 const readline = require("readline");
 const rl = readline.createInterface({
 	input: process.stdin,
 	output: process.stdout
 });
 
-rl.on("line", function(line) {
-	let clap = 0;
-	let numList = "";
-	
-	for(let i = 1; i<=line; i++){
-			numList += i
+rl.on("line", function(input_num) {
+	const number=input_num
+	let result=0
+	for(let i=3; i<=number; i++){
+		let y=String(i)
+		if ((y.match(/3/g)|| []).length != 0 || (y.match(/6/g)|| []).length != 0 || (y.match(/9/g)|| []).length != 0) {
+			result=result+(y.match(/3/g)|| []).length+(y.match(/6/g)|| []).length+(y.match(/9/g)|| []).length
 		}
-	
-	for(let i = 0; i < numList.length; i++) {
-		if(numList[i] == 3 || numList[i] == 6 || numList[i] == 9 ){
-			clap++;
-		}
-	} 
-	
-	console.log(clap);
+	}
+	console.log(result);
 	rl.close();
 }).on("close", function() {
 	process.exit();
